@@ -56,12 +56,12 @@ A <-  seq(.5,.5,length=S)
 
 
 set.seed(150)
-Y <- rlnorm(S,mean=0,sd=.45)
+Y <- rlnorm(S,mean=0,sd=.1)
 names(Y) <- seq(1:S)
 
 d <- rep(1,S)
 Dist.Rate <- .0025
-R <- 1/7.5
+R <- .1
 d_A <- 1/sqrt(.2)
 
 
@@ -97,7 +97,7 @@ for(mm in 1:TimeSteps){
     
     #Distance.Func(X,Y,Dimension,Matrix,Focal_Species,Alpha,Decay,Dist_Avg)
     
-    Rad <- 55
+    Rad <- 75
     M   <- mat.torus(Mat.S2,Rad,x.val[x],y.val[x])
     Xb   <- (Rad+1)/2
     Yb   <- (Rad+1)/2
@@ -143,8 +143,8 @@ for(mm in 1:TimeSteps){
 df.PropsM <- as.matrix(df.Props)
 
 
-write.csv(df.PropsM,"TS_v75_A05_Y45.csv",quote=F,row.names=F)
-write.csv(Mat.S,"DIST_v75_A05_Y45.csv",quote=F,row.names=F)
+write.csv(df.PropsM,"TS_v10_A05_Y1.csv",quote=F,row.names=F)
+write.csv(Mat.S,"DIST_v10_A05_Y1.csv",quote=F,row.names=F)
 
 
 

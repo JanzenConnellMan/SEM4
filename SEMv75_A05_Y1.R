@@ -61,7 +61,7 @@ names(Y) <- seq(1:S)
 
 d <- rep(1,S)
 Dist.Rate <- .0025
-R <- .2
+R <- 1/7.5
 d_A <- 1/sqrt(.2)
 
 
