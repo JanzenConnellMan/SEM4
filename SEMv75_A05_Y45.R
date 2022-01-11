@@ -45,13 +45,14 @@ TimeSteps <-15000
 dd <- sample(1:S, dm*dm, replace = TRUE)
 #r2[] <- dd
 
-
 Mat.S <- matrix(dd,nrow=dm,ncol=dm)
-Mat.S <-  read.csv("DIST_v75_A05_Y45.csv")
+Mat.S <-  factor(as.matrix(read.csv("DIST_v75_A05_Y45.csv")))
+Mat.S <- matrix(as.numeric(Mat.S),nrow=dm,ncol=dm)
+
 
 df.Props                <- data.frame( matrix(NA,ncol=S+1,nrow=(1+TimeSteps) ))
 df.Props[,1]            <- seq(1:(TimeSteps+1))
-df.Props[1,2:(S+1)]     <- c(table(Mat.S))/(dm*dm)
+df.Props[1,2:(S+1)]     <- c(table(factor(Mat.S, levels = 1:S)))/(dm*dm)
 
 A <-  seq(.5,.5,length=S)
 
