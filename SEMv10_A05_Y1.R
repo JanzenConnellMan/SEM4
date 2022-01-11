@@ -47,8 +47,7 @@ dd <- sample(1:S, dm*dm, replace = TRUE)
 
 
 Mat.S <- matrix(dd,nrow=dm,ncol=dm)
-Mat.S <-  read.csv("DIST_v5_A05_Y1.csv")
-
+Mat.S <-  read.csv("DIST_v10_A05_Y1.csv")
 
 df.Props                <- data.frame( matrix(NA,ncol=S+1,nrow=(1+TimeSteps) ))
 df.Props[,1]            <- seq(1:(TimeSteps+1))
@@ -63,7 +62,7 @@ names(Y) <- seq(1:S)
 
 d <- rep(1,S)
 Dist.Rate <- .0025
-R <- .2
+R <- .1
 d_A <- 1/sqrt(.2)
 
 
@@ -99,7 +98,7 @@ for(mm in 1:TimeSteps){
     
     #Distance.Func(X,Y,Dimension,Matrix,Focal_Species,Alpha,Decay,Dist_Avg)
     
-    Rad <- 35
+    Rad <- 75
     M   <- mat.torus(Mat.S2,Rad,x.val[x],y.val[x])
     Xb   <- (Rad+1)/2
     Yb   <- (Rad+1)/2
@@ -145,8 +144,8 @@ for(mm in 1:TimeSteps){
 df.PropsM <- as.matrix(df.Props)
 
 
-write.csv(df.PropsM,"TS_v5_A05_Y1_2.csv",quote=F,row.names=F)
-write.csv(Mat.S,"DIST_v5_A05_Y1_2.csv",quote=F,row.names=F)
+write.csv(df.PropsM,"TS_v10_A05_Y1_2.csv",quote=F,row.names=F)
+write.csv(Mat.S,"DIST_v10_A05_Y1_2.csv",quote=F,row.names=F)
 
 
 

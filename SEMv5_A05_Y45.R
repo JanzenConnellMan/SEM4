@@ -40,13 +40,14 @@ set.seed(181)
 dm <- 275
 S <- 300
 S.list <- seq(1:S)
-TimeSteps <-10000 
+TimeSteps <-15000 
 #r2 <- raster(xmn = 0, xmx = dm, ymn = 0, ymx = dm, nrows =dm, ncols = dm)
 dd <- sample(1:S, dm*dm, replace = TRUE)
 #r2[] <- dd
 
 
 Mat.S <- matrix(dd,nrow=dm,ncol=dm)
+Mat.S <-  read.csv("DIST_v5_A05_Y45.csv")
 
 df.Props                <- data.frame( matrix(NA,ncol=S+1,nrow=(1+TimeSteps) ))
 df.Props[,1]            <- seq(1:(TimeSteps+1))
@@ -143,8 +144,8 @@ for(mm in 1:TimeSteps){
 df.PropsM <- as.matrix(df.Props)
 
 
-write.csv(df.PropsM,"TS_v5_A05_Y45.csv",quote=F,row.names=F)
-write.csv(Mat.S,"DIST_v5_A05_Y45.csv",quote=F,row.names=F)
+write.csv(df.PropsM,"TS_v5_A05_Y45_2.csv",quote=F,row.names=F)
+write.csv(Mat.S,"DIST_v5_A05_Y45_2.csv",quote=F,row.names=F)
 
 
 
